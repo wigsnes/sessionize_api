@@ -7,14 +7,17 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup index.ts --format cjs,esm --dts",
-    "lint": "tsc"
+    "lint": "tsc",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "Fredrik Wigsnes",
   "license": "MIT",
   "devDependencies": {
     "@changesets/cli": "^2.27.9",
+    "dotenv": "^16.4.5",
     "tsup": "^8.3.0",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.3"
   }
 }
