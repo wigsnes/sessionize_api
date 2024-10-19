@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@changesets/cli':
         specifier: ^2.27.9
@@ -1308,6 +1312,9 @@ packages:
   yallist@2.1.2:
     resolution: {integrity: sha512-ncTzHV7NvsQZkYe1DW7cbDLm0YpzHmZF5r/iyP3ZnQtMiJ+pjzisCiMNI+Sj+xQF5pXhSHxSB3uDbsBTzY/c2A==}
 
+  zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+
 snapshots:
 
   '@babel/runtime@7.25.7':
@@ -2488,3 +2495,5 @@ snapshots:
       strip-ansi: 7.1.0
 
   yallist@2.1.2: {}
+
+  zod@3.23.8: {}

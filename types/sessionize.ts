@@ -1,149 +1,82 @@
-export interface SessionizeData {
-  sessions: Session[];
-  speakers: Speaker[];
-  questions: Question[];
-  categories: Category[];
-  rooms: any[];
-}
+import { z } from "zod";
 
-export interface Session {
-  id: string;
-  title: string;
-  description: string;
-  startsAt: any;
-  endsAt: any;
-  isServiceSession: boolean;
-  isPlenumSession: boolean;
-  speakers: string[];
-  categoryItems: number[];
-  questionAnswers: any[];
-  roomId: any;
-  liveUrl: any;
-  recordingUrl: any;
-  status: string;
-  isInformed: boolean;
-  isConfirmed: boolean;
-}
+const QuestionAnswer = z.object({
+  questionId: z.number().optional(),
+  answerValue: z.string().optional(),
+});
 
-export interface Speaker {
-  id: string;
-  firstName: string;
-  lastName: string;
-  bio: string;
-  tagLine: string;
-  profilePicture: string;
-  isTopSpeaker: boolean;
-  links: Link[];
-  sessions: number[];
-  fullName: string;
-  categoryItems: any[];
-  questionAnswers: QuestionAnswer[];
-}
+const Session = z.object({
+  id: z.string(),
+  title: z.string(),
+  description: z.string(),
+  startsAt: z.string(),
+  endsAt: z.string(),
+  isServiceSession: z.boolean(),
+  isPlenumSession: z.boolean(),
+  speakers: z.array(z.string()),
+  categoryItems: z.array(z.number()),
+  questionAnswers: z.array(QuestionAnswer),
+  roomId: z.number(),
+  liveUrl: z.string().nullable(),
+  recordingUrl: z.string().nullable(),
+  status: z.string(),
+  isInformed: z.boolean(),
+  isConfirmed: z.boolean(),
+});
 
-export interface Link {
-  title?: string;
-  url: string;
-  linkType: string;
-}
+const Link = z.object({
+  title: z.string().optional(),
+  url: z.string(),
+  linkType: z.string(),
+});
 
-export interface QuestionAnswer {
-  questionId: number;
-  answerValue: string;
-}
+const Speaker = z.object({
+  id: z.string(),
+  firstName: z.string(),
+  lastName: z.string(),
+  fullName: z.string(),
+  bio: z.string(),
+  tagLine: z.string(),
+  profilePicture: z.string(),
+  isTopSpeaker: z.boolean(),
+  links: z.array(Link),
+  sessions: z.array(z.number()),
+  categoryItems: z.array(z.number()),
+  questionAnswers: z.array(QuestionAnswer),
+});
 
-export interface Question {
-  id: number;
-  question: string;
-  questionType: string;
-  sort: number;
-}
+const Question = z.object({
+  id: z.number(),
+  question: z.string(),
+  questionType: z.string(),
+  sort: z.number(),
+});
 
-export interface Category {
-  id: number;
-  title: string;
-  items: Item[];
-  sort: number;
-  type: string;
-}
+const CategoryItem = z.object({
+  id: z.number(),
+  name: z.string(),
+});
 
-export interface Item {
-  id: number;
-  name: string;
-  sort: number;
-}
+const Category = z.object({
+  id: z.number(),
+  title: z.string(),
+  items: z.array(CategoryItem),
+  sort: z.number(),
+  type: z.string(),
+});
 
-// Schedule
+const Room = z.object({
+  id: z.number(),
+  name: z.string(),
+  sort: z.number(),
+});
 
-export interface ScheduleData {
-  date: string;
-  isDefault: boolean;
-  rooms: Room[];
-  timeSlots: TimeSlot[];
-}
+export const SessionizeData = z.object({
+  sessions: z.array(Session),
+  speakers: z.array(Speaker),
+  questions: z.array(Question),
+  categories: z.array(Category),
+  rooms: z.array(Room),
+});
 
-export interface Room {
-  id: number;
-  name: string;
-  sessions: Session2[];
-  hasOnlyPlenumSessions: boolean;
-}
-
-export interface Category {
-  id: number;
-  name: string;
-  categoryItems: CategoryItem[];
-  sort: number;
-}
-
-export interface CategoryItem {
-  id: number;
-  name: string;
-}
-
-export interface TimeSlot {
-  slotStart: string;
-  rooms: Room2[];
-}
-
-export interface Room2 {
-  id: number;
-  name: string;
-  session: Session2;
-  index: number;
-}
-
-export interface Session2 {
-  id: string;
-  title: string;
-  description: string;
-  startsAt: string;
-  endsAt: string;
-  isServiceSession: boolean;
-  isPlenumSession: boolean;
-  speakers: Speaker2[];
-  categories: Category2[];
-  roomId: number;
-  room: string;
-  liveUrl: any;
-  recordingUrl: any;
-  status?: string;
-  isInformed: boolean;
-  isConfirmed: boolean;
-}
-
-export interface Speaker2 {
-  id: string;
-  name: string;
-}
-
-export interface Category2 {
-  id: number;
-  name: string;
-  categoryItems: CategoryItem2[];
-  sort: number;
-}
-
-export interface CategoryItem2 {
-  id: number;
-  name: string;
-}
+export type SessionizeData = z.infer<typeof SessionizeData>;
