@@ -54,7 +54,7 @@ const TimeSlot = z.object({
   rooms: z.array(TimeSlotRoom),
 });
 
-export const Schedule = z.array(
+export const ScheduleSchema = z.array(
   z.object({
     date: z.string(),
     isDefault: z.boolean(),
@@ -63,4 +63,4 @@ export const Schedule = z.array(
   })
 );
 
-export type Schedule = z.infer<typeof Schedule>;
+export type Schedule = z.infer<typeof ScheduleSchema>;

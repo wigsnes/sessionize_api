@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const SpeakerWall = z.array(
+export const SpeakerWallSchema = z.array(
   z.object({
     id: z.string(),
     firstName: z.string(),
@@ -11,4 +11,4 @@ export const SpeakerWall = z.array(
   })
 );
 
-export type SpeakerWall = z.infer<typeof SpeakerWall>;
+export type SpeakerWall = z.infer<typeof SpeakerWallSchema>;

@@ -1,8 +1,15 @@
-import { Schedule } from "../types/Schedule";
-import { SessionizeData } from "../types/sessionize";
-import { Sessions } from "../types/sessions";
-import { Speakers } from "../types/speakers";
-import { SpeakerWall } from "../types/speakerWall";
+import {
+  Schedule,
+  ScheduleSchema,
+  SessionizeAll,
+  SessionizeAllSchema,
+  Sessions,
+  SessionsSchema,
+  Speakers,
+  SpeakersSchema,
+  SpeakerWall,
+  SpeakerWallSchema,
+} from "../types";
 import { SessionizeV2 } from "./api/v2/sessionize";
 
 const SafeParse = <T>(data: any, schema: any): T => {
@@ -22,7 +29,7 @@ export const SessionizeClient = (key: SessionizeKey) => {
       try {
         const response = await fetch(SessionizeV2.getAll(key));
         const data = await response.json();
-        return SafeParse<SessionizeData>(data, SessionizeData);
+        return SafeParse<SessionizeAll>(data, SessionizeAllSchema);
       } catch (e) {
         throw e;
       }
@@ -31,7 +38,7 @@ export const SessionizeClient = (key: SessionizeKey) => {
       try {
         const response = await fetch(SessionizeV2.getScheduleGrid(key));
         const data = await response.json();
-        return SafeParse<Schedule>(data, Schedule);
+        return SafeParse<Schedule>(data, ScheduleSchema);
       } catch (e) {
         throw e;
       }
@@ -40,7 +47,7 @@ export const SessionizeClient = (key: SessionizeKey) => {
       try {
         const response = await fetch(SessionizeV2.getSessions(key));
         const data = await response.json();
-        return SafeParse<Sessions>(data, Sessions);
+        return SafeParse<Sessions>(data, SessionsSchema);
       } catch (e) {
         throw e;
       }
@@ -49,7 +56,7 @@ export const SessionizeClient = (key: SessionizeKey) => {
       try {
         const response = await fetch(SessionizeV2.getSpeakers(key));
         const data = await response.json();
-        return SafeParse<Speakers>(data, Speakers);
+        return SafeParse<Speakers>(data, SpeakersSchema);
       } catch (e) {
         throw e;
       }
@@ -58,7 +65,7 @@ export const SessionizeClient = (key: SessionizeKey) => {
       try {
         const response = await fetch(SessionizeV2.getSpeakerWall(key));
         const data = await response.json();
-        return SafeParse<SpeakerWall>(data, SpeakerWall);
+        return SafeParse<SpeakerWall>(data, SpeakerWallSchema);
       } catch (e) {
         throw e;
       }

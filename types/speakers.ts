@@ -30,7 +30,7 @@ const Session = z.object({
   name: z.string(),
 });
 
-export const Speakers = z.array(
+export const SpeakersSchema = z.array(
   z.object({
     id: z.string(),
     firstName: z.string(),
@@ -47,4 +47,4 @@ export const Speakers = z.array(
   })
 );
 
-export type Speakers = z.infer<typeof Speakers>;
+export type Speakers = z.infer<typeof SpeakersSchema>;

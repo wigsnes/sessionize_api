@@ -42,7 +42,7 @@ const Session = z.object({
   room: z.string(),
 });
 
-export const Sessions = z.array(
+export const SessionsSchema = z.array(
   z.object({
     groupId: z.number().nullable(),
     groupName: z.string().nullable(),
@@ -51,4 +51,4 @@ export const Sessions = z.array(
   })
 );
 
-export type Sessions = z.infer<typeof Sessions>;
+export type Sessions = z.infer<typeof SessionsSchema>;

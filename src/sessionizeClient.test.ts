@@ -1,17 +1,18 @@
-// sum.test.js
 import { expect, test } from "vitest";
 import { SessionizeClient } from "./sessionizeClient";
-import { SessionizeData } from "../types/sessionize";
-import { Schedule } from "../types/Schedule";
-import { Sessions } from "../types/sessions";
-import { Speakers } from "../types/speakers";
-import { SpeakerWall } from "../types/speakerWall";
+import {
+  ScheduleSchema,
+  SessionizeAllSchema,
+  SessionsSchema,
+  SpeakersSchema,
+  SpeakerWallSchema,
+} from "../types";
 
 test("get all data", async () => {
   const { getAll } = SessionizeClient(process.env.SESSIONIZE_API_KEY!);
 
   const sessions = await getAll();
-  expect(() => SessionizeData.parse(sessions)).not.toThrowError();
+  expect(() => SessionizeAllSchema.parse(sessions)).not.toThrowError();
 });
 
 test("get schedule", async () => {
@@ -19,7 +20,7 @@ test("get schedule", async () => {
 
   const scheduleGrid = await getScheduleGrid();
 
-  expect(() => Schedule.parse(scheduleGrid)).not.toThrowError();
+  expect(() => ScheduleSchema.parse(scheduleGrid)).not.toThrowError();
 });
 
 test("get sessions", async () => {
@@ -27,7 +28,7 @@ test("get sessions", async () => {
 
   const sessions = await getSessions();
 
-  expect(() => Sessions.parse(sessions)).not.toThrowError();
+  expect(() => SessionsSchema.parse(sessions)).not.toThrowError();
 });
 
 test("get speakers", async () => {
@@ -35,7 +36,7 @@ test("get speakers", async () => {
 
   const speakers = await getSpeakers();
 
-  expect(() => Speakers.parse(speakers)).not.toThrowError();
+  expect(() => SpeakersSchema.parse(speakers)).not.toThrowError();
 });
 
 test("get speaker wall", async () => {
@@ -43,5 +44,5 @@ test("get speaker wall", async () => {
 
   const speakerWall = await getSpeakerWall();
 
-  expect(() => SpeakerWall.parse(speakerWall)).not.toThrowError();
+  expect(() => SpeakerWallSchema.parse(speakerWall)).not.toThrowError();
 });

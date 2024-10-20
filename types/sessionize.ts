@@ -71,7 +71,7 @@ const Room = z.object({
   sort: z.number(),
 });
 
-export const SessionizeData = z.object({
+export const SessionizeAllSchema = z.object({
   sessions: z.array(Session),
   speakers: z.array(Speaker),
   questions: z.array(Question),
@@ -79,4 +79,4 @@ export const SessionizeData = z.object({
   rooms: z.array(Room),
 });
 
-export type SessionizeData = z.infer<typeof SessionizeData>;
+export type SessionizeAll = z.infer<typeof SessionizeAllSchema>;
