@@ -2,13 +2,16 @@
 import { expect, test } from "vitest";
 import { SessionizeClient } from "./sessionizeClient";
 import { SessionizeData } from "../types/sessionize";
+import { Schedule } from "../types/Schedule";
+import { Sessions } from "../types/sessions";
+import { Speakers } from "../types/speakers";
+import { SpeakerWall } from "../types/speakerWall";
 
 test("get all data", async () => {
   const { getAll } = SessionizeClient(process.env.SESSIONIZE_API_KEY!);
 
   const sessions = await getAll();
-
-  expect(SessionizeData.parse(sessions)).toBeTruthy();
+  expect(() => SessionizeData.parse(sessions)).not.toThrowError();
 });
 
 test("get schedule", async () => {
@@ -16,7 +19,7 @@ test("get schedule", async () => {
 
   const scheduleGrid = await getScheduleGrid();
 
-  expect(scheduleGrid).toBeTruthy();
+  expect(() => Schedule.parse(scheduleGrid)).not.toThrowError();
 });
 
 test("get sessions", async () => {
@@ -24,7 +27,7 @@ test("get sessions", async () => {
 
   const sessions = await getSessions();
 
-  expect(sessions).toBeTruthy();
+  expect(() => Sessions.parse(sessions)).not.toThrowError();
 });
 
 test("get speakers", async () => {
@@ -32,13 +35,13 @@ test("get speakers", async () => {
 
   const speakers = await getSpeakers();
 
-  expect(speakers).toBeTruthy();
+  expect(() => Speakers.parse(speakers)).not.toThrowError();
 });
 
 test("get speaker wall", async () => {
   const { getSpeakerWall } = SessionizeClient(process.env.SESSIONIZE_API_KEY!);
 
-  const sessions = await getSpeakerWall();
+  const speakerWall = await getSpeakerWall();
 
-  expect(sessions).toBeTruthy();
+  expect(() => SpeakerWall.parse(speakerWall)).not.toThrowError();
 });
