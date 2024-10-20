@@ -1,5 +1,5 @@
-export * from "./schedule";
-export * from "./speakers";
-export * from "./sessions";
-export * from "./speakerWall";
-export * from "./sessionize";
+export { ScheduleSchema, Schedule } from "./schedule";
+export { SpeakersSchema, Speakers } from "./speakers";
+export { SessionsSchema, Sessions } from "./sessions";
+export { SpeakerWallSchema, SpeakerWall } from "./speakerWall";
+export { SessionizeAllSchema, SessionizeAll } from "./sessionize";
