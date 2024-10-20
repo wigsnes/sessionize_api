@@ -7,6 +7,6 @@
     "strict": true /* Enable all strict type-checking options. */,
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
     "noUncheckedIndexedAccess": true /* Include 'undefined' in index signature results */,
-    "noEmit": false /* Do not emit outputs. */
+    "noEmit": true /* Do not emit outputs. */
   }
 }
