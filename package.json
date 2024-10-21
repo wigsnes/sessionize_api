@@ -1,6 +1,6 @@
 {
   "name": "sessionize_api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Sessionize API, with types",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -10,7 +10,11 @@
     "lint": "tsc",
     "test": "vitest"
   },
-  "keywords": ["sessionize", "api", "typescript"],
+  "keywords": [
+    "sessionize",
+    "api",
+    "typescript"
+  ],
   "author": "Fredrik Wigsnes",
   "license": "MIT",
   "devDependencies": {
