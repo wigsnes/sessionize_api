@@ -1,5 +1,11 @@
 # sessionize_api
 
+## 0.0.3
+
+### Patch Changes
+
+- 108191e: Include script publish
+
 ## 0.0.2
 
 ### Patch Changes
