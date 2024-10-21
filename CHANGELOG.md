@@ -1,5 +1,11 @@
 # sessionize_api
 
+## 0.0.4
+
+### Patch Changes
+
+- f4a6787: Make it public
+
 ## 0.0.3
 
 ### Patch Changes
