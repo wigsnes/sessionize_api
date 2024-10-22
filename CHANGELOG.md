@@ -1,5 +1,11 @@
 # sessionize_api
 
+## 0.1.0
+
+### Minor Changes
+
+- 70cabaf: Removed SessionizeClient, cleaned up code.
+
 ## 0.0.4
 
 ### Patch Changes
