@@ -8,6 +8,7 @@ import {
 } from "../schemas";
 
 export type SessionizeKey = string;
+
 export type SessionizeAll = z.infer<typeof SessionizeAllSchema>;
 export type Schedule = z.infer<typeof ScheduleSchema>;
 export type Sessions = z.infer<typeof SessionsSchema>;
