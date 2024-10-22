@@ -2,7 +2,6 @@ import { ZodType } from "zod";
 import {
   ScheduleSchema,
   SessionizeAllSchema,
-  SessionizeKey,
   SessionsSchema,
   SpeakersSchema,
   SpeakerWallSchema,
@@ -11,6 +10,7 @@ import { SessionizeV2 } from "./api/v2";
 import {
   Schedule,
   SessionizeAll,
+  SessionizeKey,
   Sessions,
   Speakers,
   SpeakerWall,
