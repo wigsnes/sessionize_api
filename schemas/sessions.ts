@@ -50,5 +50,3 @@ export const SessionsSchema = z.array(
     isDefault: z.boolean(),
   })
 );
-
-export type Sessions = z.infer<typeof SessionsSchema>;

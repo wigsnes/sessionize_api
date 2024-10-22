@@ -46,5 +46,3 @@ export const SpeakersSchema = z.array(
     questionAnswers: z.array(QuestionAnswer),
   })
 );
-
-export type Speakers = z.infer<typeof SpeakersSchema>;

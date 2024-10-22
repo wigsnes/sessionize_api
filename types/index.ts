@@ -1,5 +1,15 @@
-export { ScheduleSchema, Schedule } from "./schedule";
-export { SpeakersSchema, Speakers } from "./speakers";
-export { SessionsSchema, Sessions } from "./sessions";
-export { SpeakerWallSchema, SpeakerWall } from "./speakerWall";
-export { SessionizeAllSchema, SessionizeAll } from "./sessionize";
+import { z } from "zod";
+import {
+  ScheduleSchema,
+  SessionizeAllSchema,
+  SessionsSchema,
+  SpeakersSchema,
+  SpeakerWallSchema,
+} from "../schemas";
+
+export type SessionizeKey = string;
+export type SessionizeAll = z.infer<typeof SessionizeAllSchema>;
+export type Schedule = z.infer<typeof ScheduleSchema>;
+export type Sessions = z.infer<typeof SessionsSchema>;
+export type Speakers = z.infer<typeof SpeakersSchema>;
+export type SpeakerWall = z.infer<typeof SpeakerWallSchema>;

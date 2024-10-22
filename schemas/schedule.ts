@@ -62,5 +62,3 @@ export const ScheduleSchema = z.array(
     timeSlots: z.array(TimeSlot),
   })
 );
-
-export type Schedule = z.infer<typeof ScheduleSchema>;

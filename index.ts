@@ -1,4 +1,4 @@
 import "dotenv/config";
 
-export * from "./types";
-export { SessionizeClient } from "./src/sessionizeClient";
+export * from "./schemas";
+export * from "./src/sessionize";

@@ -10,5 +10,3 @@ export const SpeakerWallSchema = z.array(
     isTopSpeaker: z.boolean(),
   })
 );
-
-export type SpeakerWall = z.infer<typeof SpeakerWallSchema>;

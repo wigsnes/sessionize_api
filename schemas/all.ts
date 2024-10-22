@@ -78,5 +78,3 @@ export const SessionizeAllSchema = z.object({
   categories: z.array(Category),
   rooms: z.array(Room),
 });
-
-export type SessionizeAll = z.infer<typeof SessionizeAllSchema>;
