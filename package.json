@@ -1,6 +1,6 @@
 {
   "name": "sessionize_api",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Sessionize API, with types",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
