@@ -1,48 +1,59 @@
 import { z } from "zod";
+import {
+  SessionItem,
+  Speaker,
+  SpeakerCategory,
+  Speakers,
+  CategoryItem,
+  Link,
+  QuestionAnswer,
+} from "../types";
 
-const QuestionAnswer = z.object({
+export const QuestionAnswerSchema = z.object({
   questionId: z.number().optional(),
   answerValue: z.string().optional(),
-});
+}) satisfies z.ZodType<QuestionAnswer>;
 
-const Link = z.object({
+export const LinkSchema = z.object({
   title: z.string().optional(),
   url: z.string(),
   linkType: z.string(),
-});
+}) satisfies z.ZodType<Link>;
 
-const Item = z.object({
+export const ItemSchema = z.object({
   id: z.number(),
   name: z.string(),
   sort: z.number(),
-});
+}) satisfies z.ZodType<CategoryItem>;
 
-const Category = z.object({
+export const CategorySchema = z.object({
   id: z.number(),
   title: z.string(),
-  items: z.array(Item),
+  items: z.array(ItemSchema),
   sort: z.number(),
   type: z.string(),
-});
+}) satisfies z.ZodType<SpeakerCategory>;
 
-const Session = z.object({
+export const SessionSchema = z.object({
   id: z.number(),
   name: z.string(),
-});
+}) satisfies z.ZodType<SessionItem>;
+
+export const SpeakerSchema = z.object({
+  id: z.string(),
+  firstName: z.string(),
+  lastName: z.string(),
+  fullName: z.string(),
+  bio: z.string().nullable(),
+  tagLine: z.string(),
+  profilePicture: z.string().nullable(),
+  isTopSpeaker: z.boolean(),
+  links: z.array(LinkSchema),
+  sessions: z.array(SessionSchema),
+  categories: z.array(CategorySchema),
+  questionAnswers: z.array(QuestionAnswerSchema),
+}) satisfies z.ZodType<Speaker>;
 
 export const SpeakersSchema = z.array(
-  z.object({
-    id: z.string(),
-    firstName: z.string(),
-    lastName: z.string(),
-    fullName: z.string(),
-    bio: z.string().nullable(),
-    tagLine: z.string(),
-    profilePicture: z.string().nullable(),
-    isTopSpeaker: z.boolean(),
-    links: z.array(Link),
-    sessions: z.array(Session),
-    categories: z.array(Category),
-    questionAnswers: z.array(QuestionAnswer),
-  })
-);
+  SpeakerSchema
+) satisfies z.ZodType<Speakers>;

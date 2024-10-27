@@ -1,21 +1,31 @@
 import { z } from "zod";
+import {
+  RoomWithSessions,
+  Schedules,
+  ScheduleSession,
+  TimeSlot,
+  TimeSlotRoom,
+  CategoryItem,
+  QuestionAnswer,
+  SpeakerItem,
+} from "../types";
 
-const QuestionAnswer = z.object({
+export const QuestionAnswerSchema = z.object({
   questionId: z.number().optional(),
   answerValue: z.string().optional(),
-});
+}) satisfies z.ZodType<QuestionAnswer>;
 
-const Speaker = z.object({
+export const SpeakerSchema = z.object({
   id: z.string(),
   name: z.string(),
-});
+}) satisfies z.ZodType<SpeakerItem>;
 
-const CategoryItem = z.object({
+export const CategoryItemSchema = z.object({
   id: z.number(),
   name: z.string(),
-});
+}) satisfies z.ZodType<CategoryItem>;
 
-const Session = z.object({
+export const SessionSchema = z.object({
   id: z.string(),
   title: z.string(),
   description: z.string().nullable(),
@@ -23,42 +33,42 @@ const Session = z.object({
   endsAt: z.string(),
   isServiceSession: z.boolean(),
   isPlenumSession: z.boolean(),
-  questionAnswers: z.array(QuestionAnswer).optional(),
+  questionAnswers: z.array(QuestionAnswerSchema).optional(),
   roomId: z.number(),
   liveUrl: z.string().nullable(),
   recordingUrl: z.string().nullable(),
   status: z.string().nullable(),
   isInformed: z.boolean(),
   isConfirmed: z.boolean(),
-  speakers: z.array(Speaker),
-  categories: z.array(CategoryItem),
+  speakers: z.array(SpeakerSchema),
+  categories: z.array(CategoryItemSchema),
   room: z.string(),
-});
+}) satisfies z.ZodType<ScheduleSession>;
 
-const Room = z.object({
+export const RoomSchema = z.object({
   id: z.number(),
   name: z.string(),
-  sessions: z.array(Session),
+  sessions: z.array(SessionSchema),
   hasOnlyPlenumSessions: z.boolean(),
-});
+}) satisfies z.ZodType<RoomWithSessions>;
 
-const TimeSlotRoom = z.object({
+export const TimeSlotRoomSchema = z.object({
   id: z.number(),
   name: z.string(),
-  session: Session,
+  session: SessionSchema,
   index: z.number(),
-});
+}) satisfies z.ZodType<TimeSlotRoom>;
 
-const TimeSlot = z.object({
+export const TimeSlotSchema = z.object({
   slotStart: z.string(),
-  rooms: z.array(TimeSlotRoom),
-});
+  rooms: z.array(TimeSlotRoomSchema),
+}) satisfies z.ZodType<TimeSlot>;
 
 export const ScheduleSchema = z.array(
   z.object({
     date: z.string(),
     isDefault: z.boolean(),
-    rooms: z.array(Room),
-    timeSlots: z.array(TimeSlot),
+    rooms: z.array(RoomSchema),
+    timeSlots: z.array(TimeSlotSchema),
   })
-);
+) satisfies z.ZodType<Schedules>;

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { SpeakerWalls } from "../types";
 
 export const SpeakerWallSchema = z.array(
   z.object({
@@ -9,4 +10,4 @@ export const SpeakerWallSchema = z.array(
     profilePicture: z.string(),
     isTopSpeaker: z.boolean(),
   })
-);
+) satisfies z.ZodType<SpeakerWalls>;

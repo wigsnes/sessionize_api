@@ -5,13 +5,13 @@ import {
   SessionsSchema,
   SpeakersSchema,
   SpeakerWallSchema,
-} from "../schemas";
+} from "../schemas/";
 import { SessionizeV2 } from "./api/v2";
 import {
   Schedule,
   SessionizeAll,
   SessionizeKey,
-  Sessions,
+  SessionGroups,
   Speakers,
   SpeakerWall,
 } from "../types";
@@ -52,7 +52,7 @@ export const getSessions = async (key: SessionizeKey) => {
     const data = await fetch(SessionizeV2.getSessions(key)).then((res) =>
       res.json()
     );
-    return SafeParse<Sessions>(data, SessionsSchema);
+    return SafeParse<SessionGroups>(data, SessionsSchema);
   } catch (e) {
     throw e;
   }

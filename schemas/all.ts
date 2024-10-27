@@ -1,11 +1,22 @@
 import { z } from "zod";
+import {
+  CategoryAll,
+  CategoryItem,
+  Link,
+  QuestionAll,
+  QuestionAnswer,
+  RoomAll,
+  SessionALl,
+  SessionizeAll,
+  SpeakerAll,
+} from "../types";
 
 const QuestionAnswer = z.object({
   questionId: z.number().optional(),
   answerValue: z.string().optional(),
-});
+}) satisfies z.ZodType<QuestionAnswer>;
 
-const Session = z.object({
+export const SessionSchema = z.object({
   id: z.string(),
   title: z.string(),
   description: z.string().nullable(),
@@ -22,15 +33,15 @@ const Session = z.object({
   status: z.string(),
   isInformed: z.boolean(),
   isConfirmed: z.boolean(),
-});
+}) satisfies z.ZodType<SessionALl>;
 
 const Link = z.object({
   title: z.string().optional(),
   url: z.string(),
   linkType: z.string(),
-});
+}) satisfies z.ZodType<Link>;
 
-const Speaker = z.object({
+export const SpeakerSchema = z.object({
   id: z.string(),
   firstName: z.string(),
   lastName: z.string(),
@@ -43,38 +54,38 @@ const Speaker = z.object({
   sessions: z.array(z.number()),
   categoryItems: z.array(z.number()),
   questionAnswers: z.array(QuestionAnswer),
-});
+}) satisfies z.ZodType<SpeakerAll>;
 
-const Question = z.object({
+export const QuestionSchema = z.object({
   id: z.number(),
   question: z.string(),
   questionType: z.string(),
   sort: z.number(),
-});
+}) satisfies z.ZodType<QuestionAll>;
 
 const CategoryItem = z.object({
   id: z.number(),
   name: z.string(),
-});
+}) satisfies z.ZodType<CategoryItem>;
 
-const Category = z.object({
+export const CategorySchema = z.object({
   id: z.number(),
   title: z.string(),
   items: z.array(CategoryItem),
   sort: z.number(),
   type: z.string(),
-});
+}) satisfies z.ZodType<CategoryAll>;
 
-const Room = z.object({
+export const RoomSchema = z.object({
   id: z.number(),
   name: z.string(),
   sort: z.number(),
-});
+}) satisfies z.ZodType<RoomAll>;
 
 export const SessionizeAllSchema = z.object({
-  sessions: z.array(Session),
-  speakers: z.array(Speaker),
-  questions: z.array(Question),
-  categories: z.array(Category),
-  rooms: z.array(Room),
-});
+  sessions: z.array(SessionSchema),
+  speakers: z.array(SpeakerSchema),
+  questions: z.array(QuestionSchema),
+  categories: z.array(CategorySchema),
+  rooms: z.array(RoomSchema),
+}) satisfies z.ZodType<SessionizeAll>;
