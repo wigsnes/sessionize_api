@@ -1,5 +1,12 @@
 # sessionize_api
 
+## 0.2.2
+
+### Patch Changes
+
+- b044926: Fix CagegoryGroup type
+- 71eaef9: Fix CategoryGroupSchema
+
 ## 0.2.1
 
 ### Patch Changes
