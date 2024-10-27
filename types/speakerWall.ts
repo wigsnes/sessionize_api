@@ -1,4 +1,4 @@
-export type SpeakerWall = {
+export type SpeakerWallItem = {
   id: string;
   firstName: string;
   lastName: string;
@@ -7,4 +7,4 @@ export type SpeakerWall = {
   isTopSpeaker: boolean;
 };
 
-export type SpeakerWalls = SpeakerWall[];
+export type SpeakersWall = SpeakerWallItem[];

@@ -1,13 +1,15 @@
 import { z } from "zod";
-import { SpeakerWalls } from "../types";
+import { SpeakersWall, SpeakerWallItem } from "../types";
 
-export const SpeakerWallSchema = z.array(
-  z.object({
-    id: z.string(),
-    firstName: z.string(),
-    lastName: z.string(),
-    tagLine: z.string(),
-    profilePicture: z.string(),
-    isTopSpeaker: z.boolean(),
-  })
-) satisfies z.ZodType<SpeakerWalls>;
+export const SpeakerWallItemSchema = z.object({
+  id: z.string(),
+  firstName: z.string(),
+  lastName: z.string(),
+  tagLine: z.string(),
+  profilePicture: z.string(),
+  isTopSpeaker: z.boolean(),
+}) satisfies z.ZodType<SpeakerWallItem>;
+
+export const SpeakersWallSchema = z.array(
+  SpeakerWallItemSchema
+) satisfies z.ZodType<SpeakersWall>;

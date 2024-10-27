@@ -4,16 +4,16 @@ import {
   SessionizeAllSchema,
   SessionsSchema,
   SpeakersSchema,
-  SpeakerWallSchema,
+  SpeakersWallSchema,
 } from "../schemas/";
 import { SessionizeV2 } from "./api/v2";
 import {
-  Schedule,
   SessionizeAll,
   SessionizeKey,
   SessionGroups,
   Speakers,
-  SpeakerWall,
+  Schedules,
+  SpeakersWall,
 } from "../types";
 
 const SafeParse = <T>(data: unknown, schema: ZodType): T => {
@@ -41,7 +41,7 @@ export const getScheduleGrid = async (key: SessionizeKey) => {
     const data = await fetch(SessionizeV2.getScheduleGrid(key)).then((res) =>
       res.json()
     );
-    return SafeParse<Schedule>(data, ScheduleSchema);
+    return SafeParse<Schedules>(data, ScheduleSchema);
   } catch (e) {
     throw e;
   }
@@ -74,7 +74,7 @@ export const getSpeakerWall = async (key: SessionizeKey) => {
     const data = await fetch(SessionizeV2.getSpeakerWall(key)).then((res) =>
       res.json()
     );
-    return SafeParse<SpeakerWall>(data, SpeakerWallSchema);
+    return SafeParse<SpeakersWall>(data, SpeakersWallSchema);
   } catch (e) {
     throw e;
   }

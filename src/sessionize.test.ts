@@ -4,7 +4,7 @@ import {
   SessionizeAllSchema,
   SessionsSchema,
   SpeakersSchema,
-  SpeakerWallSchema,
+  SpeakersWallSchema,
 } from "../schemas";
 import {
   getAll,
@@ -38,7 +38,7 @@ test("get speakers", async () => {
 });
 
 test("get speaker wall", async () => {
-  const speakerWall = await getSpeakerWall(process.env.SESSIONIZE_API_KEY!);
+  const speakersWall = await getSpeakerWall(process.env.SESSIONIZE_API_KEY!);
 
-  expect(() => SpeakerWallSchema.parse(speakerWall)).not.toThrowError();
+  expect(() => SpeakersWallSchema.parse(speakersWall)).not.toThrowError();
 });
