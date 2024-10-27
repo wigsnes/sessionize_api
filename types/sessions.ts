@@ -1,11 +1,4 @@
-import { CategoryItem, QuestionAnswer, SpeakerItem } from "./common";
-
-export type CagegoryGroup = {
-  id: number;
-  name: string;
-  categoryItems: CategoryItem[];
-  sort: number;
-};
+import { CagegoryGroup, QuestionAnswer, SpeakerItem } from "./common";
 
 export type Session = {
   id: string;

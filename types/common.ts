@@ -3,6 +3,13 @@ export type CategoryItem = {
   name: string;
 };
 
+export type CagegoryGroup = {
+  id: number;
+  name: string;
+  categoryItems: CategoryItem[];
+  sort: number;
+};
+
 export type QuestionAnswer = {
   questionId?: number | null;
   answerValue?: string | null;

@@ -1,5 +1,4 @@
-import { QuestionAnswer, SpeakerItem } from "./common";
-import { CagegoryGroup } from "./sessions";
+import { QuestionAnswer, SpeakerItem, CagegoryGroup } from "./common";
 
 export type ScheduleSession = {
   id: string;

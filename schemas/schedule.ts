@@ -8,6 +8,7 @@ import {
   CategoryItem,
   QuestionAnswer,
   SpeakerItem,
+  CagegoryGroup,
 } from "../types";
 
 export const QuestionAnswerSchema = z.object({
@@ -25,6 +26,13 @@ export const CategoryItemSchema = z.object({
   name: z.string(),
 }) satisfies z.ZodType<CategoryItem>;
 
+export const CategoryGroupSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  categoryItems: z.array(CategoryItemSchema),
+  sort: z.number(),
+}) satisfies z.ZodType<CagegoryGroup>;
+
 export const SessionSchema = z.object({
   id: z.string(),
   title: z.string(),
@@ -41,7 +49,7 @@ export const SessionSchema = z.object({
   isInformed: z.boolean(),
   isConfirmed: z.boolean(),
   speakers: z.array(SpeakerSchema),
-  categories: z.array(CategoryItemSchema),
+  categories: z.array(CategoryGroupSchema),
   room: z.string(),
 }) satisfies z.ZodType<ScheduleSession>;
 
