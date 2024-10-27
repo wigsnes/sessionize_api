@@ -1,5 +1,11 @@
 # sessionize_api
 
+## 0.2.1
+
+### Patch Changes
+
+- 275b63b: Fix wrong types
+
 ## 0.2.0
 
 ### Minor Changes
