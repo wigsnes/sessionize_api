@@ -1,4 +1,5 @@
-import { CategoryItem, QuestionAnswer, SpeakerItem } from "./common";
+import { QuestionAnswer, SpeakerItem } from "./common";
+import { CagegoryGroup } from "./sessions";
 
 export type ScheduleSession = {
   id: string;
@@ -17,7 +18,7 @@ export type ScheduleSession = {
   isInformed: boolean;
   isConfirmed: boolean;
   speakers: SpeakerItem[];
-  categories: CategoryItem[];
+  categories: CagegoryGroup[];
 };
 
 export type RoomWithSessions = {
