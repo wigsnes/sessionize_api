@@ -1,5 +1,11 @@
 # sessionize_api
 
+## 0.2.0
+
+### Minor Changes
+
+- fe7b79a: Export types
+
 ## 0.1.1
 
 ### Patch Changes
