@@ -1,4 +1,4 @@
-import { CategoryItem, Link, QuestionAnswer } from "./common";
+import type { CategoryItem, Link, QuestionAnswer } from './common.js';
 
 export type SpeakerCategory = {
   id: number;

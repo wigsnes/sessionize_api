@@ -1,5 +1,5 @@
-import { z } from "zod";
-import {
+import { z } from 'zod';
+import type {
   SessionItem,
   Speaker,
   SpeakerCategory,
@@ -7,7 +7,7 @@ import {
   CategoryItem,
   Link,
   QuestionAnswer,
-} from "../types";
+} from '../types/index.js';
 
 export const QuestionAnswerSchema = z.object({
   questionId: z.number().optional(),
@@ -55,5 +55,5 @@ export const SpeakerSchema = z.object({
 }) satisfies z.ZodType<Speaker>;
 
 export const SpeakersSchema = z.array(
-  SpeakerSchema
+  SpeakerSchema,
 ) satisfies z.ZodType<Speakers>;

@@ -1,5 +1,5 @@
-import { z } from "zod";
-import {
+import { z } from 'zod';
+import type {
   CategoryAll,
   CategoryItem,
   Link,
@@ -9,7 +9,7 @@ import {
   SessionALl,
   SessionizeAll,
   SpeakerAll,
-} from "../types";
+} from '../types/index.js';
 
 const QuestionAnswer = z.object({
   questionId: z.number().optional(),

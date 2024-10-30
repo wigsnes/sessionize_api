@@ -1,5 +1,5 @@
 ---
-"sessionize_api": patch
+'sessionize_api': patch
 ---
 
 Fix CagegoryGroup type

@@ -1,4 +1,4 @@
-import { CagegoryGroup, QuestionAnswer, SpeakerItem } from "./common";
+import type { CagegoryGroup, QuestionAnswer, SpeakerItem } from './common.js';
 
 export type Session = {
   id: string;

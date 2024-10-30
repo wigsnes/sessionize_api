@@ -1,4 +1,4 @@
-const SESSIONIZE_URL = "https://sessionize.com/api/v2";
+const SESSIONIZE_URL = 'https://sessionize.com/api/v2';
 
 export const SessionizeV2 = {
   getAll: (key: string) => `${SESSIONIZE_URL}/${key}/view/All`,

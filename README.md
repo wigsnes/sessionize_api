@@ -10,7 +10,7 @@ But it will still return the data, so you can handle it on your side if you want
 ## How to use
 
 ```typescript
-import { getSessions } from "sessionize_api";
+import { getSessions } from 'sessionize_api';
 
 // SESSIONIZE_KEY is your sessionize API key
 const sessions = await getSessions(SESSIONIZE_KEY);

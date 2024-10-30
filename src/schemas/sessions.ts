@@ -1,12 +1,12 @@
-import { z } from "zod";
-import {
+import { z } from 'zod';
+import type {
   CagegoryGroup,
   Session,
   SessionGroups,
   CategoryItem,
   QuestionAnswer,
   SpeakerItem,
-} from "../types";
+} from '../types/index.js';
 
 export const QuestionAnswerSchema = z.object({
   questionId: z.number().optional(),
@@ -56,5 +56,5 @@ export const SessionsSchema = z.array(
     groupName: z.string().nullable(),
     sessions: z.array(SessionSchema),
     isDefault: z.boolean(),
-  })
+  }),
 ) satisfies z.ZodType<SessionGroups>;

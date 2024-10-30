@@ -1,20 +1,20 @@
-import { ZodType } from "zod";
+import { ZodType } from 'zod';
 import {
   ScheduleSchema,
   SessionizeAllSchema,
   SessionsSchema,
   SpeakersSchema,
   SpeakersWallSchema,
-} from "../schemas/";
-import { SessionizeV2 } from "./api/v2";
-import {
+} from './schemas/index.js';
+import { SessionizeV2 } from './api/v2.js';
+import type {
   SessionizeAll,
   SessionizeKey,
   SessionGroups,
   Speakers,
   Schedules,
   SpeakersWall,
-} from "../types";
+} from './types/index.js';
 
 const SafeParse = <T>(data: unknown, schema: ZodType): T => {
   const parsed = schema.safeParse(data);
@@ -28,7 +28,7 @@ const SafeParse = <T>(data: unknown, schema: ZodType): T => {
 export const getAll = async (key: SessionizeKey) => {
   try {
     const data = await fetch(SessionizeV2.getAll(key)).then((res) =>
-      res.json()
+      res.json(),
     );
     return SafeParse<SessionizeAll>(data, SessionizeAllSchema);
   } catch (e) {
@@ -39,7 +39,7 @@ export const getAll = async (key: SessionizeKey) => {
 export const getScheduleGrid = async (key: SessionizeKey) => {
   try {
     const data = await fetch(SessionizeV2.getScheduleGrid(key)).then((res) =>
-      res.json()
+      res.json(),
     );
     return SafeParse<Schedules>(data, ScheduleSchema);
   } catch (e) {
@@ -50,7 +50,7 @@ export const getScheduleGrid = async (key: SessionizeKey) => {
 export const getSessions = async (key: SessionizeKey) => {
   try {
     const data = await fetch(SessionizeV2.getSessions(key)).then((res) =>
-      res.json()
+      res.json(),
     );
     return SafeParse<SessionGroups>(data, SessionsSchema);
   } catch (e) {
@@ -61,7 +61,7 @@ export const getSessions = async (key: SessionizeKey) => {
 export const getSpeakers = async (key: SessionizeKey) => {
   try {
     const data = await fetch(SessionizeV2.getSpeakers(key)).then((res) =>
-      res.json()
+      res.json(),
     );
     return SafeParse<Speakers>(data, SpeakersSchema);
   } catch (e) {
@@ -72,7 +72,7 @@ export const getSpeakers = async (key: SessionizeKey) => {
 export const getSpeakerWall = async (key: SessionizeKey) => {
   try {
     const data = await fetch(SessionizeV2.getSpeakerWall(key)).then((res) =>
-      res.json()
+      res.json(),
     );
     return SafeParse<SpeakersWall>(data, SpeakersWallSchema);
   } catch (e) {

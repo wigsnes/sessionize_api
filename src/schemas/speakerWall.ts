@@ -1,5 +1,5 @@
-import { z } from "zod";
-import { SpeakersWall, SpeakerWallItem } from "../types";
+import { z } from 'zod';
+import type { SpeakersWall, SpeakerWallItem } from '../types/index.js';
 
 export const SpeakerWallItemSchema = z.object({
   id: z.string(),
@@ -11,5 +11,5 @@ export const SpeakerWallItemSchema = z.object({
 }) satisfies z.ZodType<SpeakerWallItem>;
 
 export const SpeakersWallSchema = z.array(
-  SpeakerWallItemSchema
+  SpeakerWallItemSchema,
 ) satisfies z.ZodType<SpeakersWall>;

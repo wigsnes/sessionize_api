@@ -1,5 +1,5 @@
-import { z } from "zod";
-import {
+import { z } from 'zod';
+import type {
   RoomWithSessions,
   Schedules,
   ScheduleSession,
@@ -9,7 +9,7 @@ import {
   QuestionAnswer,
   SpeakerItem,
   CagegoryGroup,
-} from "../types";
+} from '../types/index.js';
 
 export const QuestionAnswerSchema = z.object({
   questionId: z.number().optional(),
@@ -78,5 +78,5 @@ export const ScheduleSchema = z.array(
     isDefault: z.boolean(),
     rooms: z.array(RoomSchema),
     timeSlots: z.array(TimeSlotSchema),
-  })
+  }),
 ) satisfies z.ZodType<Schedules>;

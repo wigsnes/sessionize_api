@@ -1,4 +1,4 @@
-import { QuestionAnswer, SpeakerItem, CagegoryGroup } from "./common";
+import type { QuestionAnswer, SpeakerItem, CagegoryGroup } from './common.js';
 
 export type ScheduleSession = {
   id: string;
