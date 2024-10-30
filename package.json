@@ -33,7 +33,7 @@
     "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
     "ci": "pnpm run build && pnpm run lint && pnpm run check-exports",
     "local-release": "changeset version && changeset publish",
-    "prepublishOnly": "npnpmpm run ci"
+    "prepublishOnly": "pnpm run ci"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.16.4",
