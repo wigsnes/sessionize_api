@@ -1,5 +1,11 @@
 # sessionize_api
 
+## 0.3.1
+
+### Patch Changes
+
+- 5c32eb6: Lint
+
 ## 0.3.0
 
 ### Minor Changes
