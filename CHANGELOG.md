@@ -1,5 +1,11 @@
 # sessionize_api
 
+## 0.3.0
+
+### Minor Changes
+
+- dc0821c: Update types to esm only
+
 ## 0.2.2
 
 ### Patch Changes
