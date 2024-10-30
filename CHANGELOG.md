@@ -1,5 +1,11 @@
 # sessionize_api
 
+## 0.3.2
+
+### Patch Changes
+
+- 75e8630: Refactor package.json scripts for consistency and use pnpm instead of npm
+
 ## 0.3.1
 
 ### Patch Changes
