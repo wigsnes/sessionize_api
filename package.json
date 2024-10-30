@@ -1,8 +1,8 @@
 {
   "type": "module",
   "license": "MIT",
-  "version": "0.2.1",
   "name": "sessionize_api",
+  "version": "0.2.2",
   "description": "Sessionize API, with types",
   "keywords": [
     "sessionize",
