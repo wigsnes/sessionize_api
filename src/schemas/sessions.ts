@@ -34,12 +34,12 @@ export const SessionSchema = z.object({
   id: z.string(),
   title: z.string(),
   description: z.string().nullable(),
-  startsAt: z.string(),
-  endsAt: z.string(),
+  startsAt: z.string().nullable(),
+  endsAt: z.string().nullable(),
   isServiceSession: z.boolean(),
   isPlenumSession: z.boolean(),
   questionAnswers: z.array(QuestionAnswerSchema),
-  roomId: z.number(),
+  roomId: z.number().nullable(),
   liveUrl: z.string().nullable(),
   recordingUrl: z.string().nullable(),
   status: z.string(),
@@ -47,7 +47,7 @@ export const SessionSchema = z.object({
   isConfirmed: z.boolean(),
   speakers: z.array(SpeakerSchema),
   categories: z.array(CategorySchema),
-  room: z.string(),
+  room: z.string().nullable(),
 }) satisfies z.ZodType<Session>;
 
 export const SessionsSchema = z.array(
