@@ -1,5 +1,11 @@
 # sessionize_api
 
+## 0.3.6
+
+### Patch Changes
+
+- b2bb89b: Remove import
+
 ## 0.3.5
 
 ### Patch Changes
