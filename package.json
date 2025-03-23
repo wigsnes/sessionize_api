@@ -2,7 +2,7 @@
   "type": "module",
   "license": "MIT",
   "name": "sessionize_api",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Sessionize API, with types",
   "keywords": [
     "sessionize",
@@ -26,6 +26,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "changeset": "changeset",
     "release": "pnpm run build && changeset publish",
     "test": "vitest",
     "lint": "prettier --check .",
