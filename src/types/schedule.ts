@@ -4,13 +4,13 @@ export type ScheduleSession = {
   id: string;
   title: string;
   description: string | null;
-  startsAt: string;
-  endsAt: string;
+  startsAt: string | null;
+  endsAt: string | null;
   isServiceSession: boolean;
   isPlenumSession: boolean;
   questionAnswers?: QuestionAnswer[] | undefined;
   room: string;
-  roomId: number;
+  roomId: number | null;
   liveUrl: string | null;
   recordingUrl: string | null;
   status: string | null;
