@@ -1,5 +1,12 @@
 # sessionize_api
 
+## 0.3.7
+
+### Patch Changes
+
+- d3c6e86: Update types
+- 823e176: Fix null
+
 ## 0.3.6
 
 ### Patch Changes
