@@ -1,5 +1,11 @@
 # sessionize_api
 
+## 0.4.0
+
+### Minor Changes
+
+- 094f3e2: Update zod and speaker types
+
 ## 0.3.7
 
 ### Patch Changes
