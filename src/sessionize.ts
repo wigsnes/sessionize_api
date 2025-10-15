@@ -19,7 +19,7 @@ import type {
 const SafeParse = <T>(data: unknown, schema: ZodType): T => {
   const parsed = schema.safeParse(data);
   if (!parsed.success) {
-    console.error(parsed.error);
+    console.warn('Schema validation failed:', parsed.error.issues);
     return data as T;
   }
   return parsed.data as T;
@@ -27,9 +27,11 @@ const SafeParse = <T>(data: unknown, schema: ZodType): T => {
 
 export const getAll = async (key: SessionizeKey) => {
   try {
-    const data = await fetch(SessionizeV2.getAll(key)).then((res) =>
-      res.json(),
-    );
+    const response = await fetch(SessionizeV2.getAll(key));
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
     return SafeParse<SessionizeAll>(data, SessionizeAllSchema);
   } catch (e) {
     throw e;
@@ -38,9 +40,11 @@ export const getAll = async (key: SessionizeKey) => {
 
 export const getScheduleGrid = async (key: SessionizeKey) => {
   try {
-    const data = await fetch(SessionizeV2.getScheduleGrid(key)).then((res) =>
-      res.json(),
-    );
+    const response = await fetch(SessionizeV2.getScheduleGrid(key));
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
     return SafeParse<Schedules>(data, ScheduleSchema);
   } catch (e) {
     throw e;
@@ -49,9 +53,11 @@ export const getScheduleGrid = async (key: SessionizeKey) => {
 
 export const getSessions = async (key: SessionizeKey) => {
   try {
-    const data = await fetch(SessionizeV2.getSessions(key)).then((res) =>
-      res.json(),
-    );
+    const response = await fetch(SessionizeV2.getSessions(key));
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
     return SafeParse<SessionGroups>(data, SessionsSchema);
   } catch (e) {
     throw e;
@@ -60,9 +66,11 @@ export const getSessions = async (key: SessionizeKey) => {
 
 export const getSpeakers = async (key: SessionizeKey) => {
   try {
-    const data = await fetch(SessionizeV2.getSpeakers(key)).then((res) =>
-      res.json(),
-    );
+    const response = await fetch(SessionizeV2.getSpeakers(key));
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
     return SafeParse<Speakers>(data, SpeakersSchema);
   } catch (e) {
     throw e;
@@ -71,9 +79,11 @@ export const getSpeakers = async (key: SessionizeKey) => {
 
 export const getSpeakerWall = async (key: SessionizeKey) => {
   try {
-    const data = await fetch(SessionizeV2.getSpeakerWall(key)).then((res) =>
-      res.json(),
-    );
+    const response = await fetch(SessionizeV2.getSpeakerWall(key));
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
     return SafeParse<SpeakersWall>(data, SpeakersWallSchema);
   } catch (e) {
     throw e;

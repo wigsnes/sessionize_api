@@ -70,10 +70,10 @@ const CategoryItem = z.object({
 
 export const CategorySchema = z.object({
   id: z.number(),
-  title: z.string(),
-  items: z.array(CategoryItem),
+  title: z.string().optional(),
+  items: z.array(CategoryItem).optional(),
   sort: z.number(),
-  type: z.string(),
+  type: z.string().optional(),
 }) satisfies z.ZodType<CategoryAll>;
 
 export const RoomSchema = z.object({

@@ -2,10 +2,10 @@ import type { CategoryItem, Link, QuestionAnswer } from './common.js';
 
 export type SpeakerCategory = {
   id: number;
-  title: string;
-  items: CategoryItem[];
+  title?: string;
+  items?: CategoryItem[];
   sort: number;
-  type: string;
+  type?: string;
 };
 
 export type SessionItem = {

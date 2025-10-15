@@ -28,10 +28,10 @@ export const ItemSchema = z.object({
 
 export const CategorySchema = z.object({
   id: z.number(),
-  title: z.string(),
-  items: z.array(ItemSchema),
+  title: z.string().optional(),
+  items: z.array(ItemSchema).optional(),
   sort: z.number(),
-  type: z.string(),
+  type: z.string().optional(),
 }) satisfies z.ZodType<SpeakerCategory>;
 
 export const SessionSchema = z.object({
