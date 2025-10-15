@@ -43,10 +43,10 @@ export type QuestionAll = {
 
 export type CategoryAll = {
   id: number;
-  title: string;
-  items: CategoryItem[];
+  title?: string;
+  items?: CategoryItem[];
   sort: number;
-  type: string;
+  type?: string;
 };
 
 export type RoomAll = {

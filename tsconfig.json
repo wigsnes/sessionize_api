@@ -20,5 +20,5 @@
 
     "declaration": true
   },
-  "exclude": ["vitest.config.*", "vitest.setup.*", "dist"]
+  "exclude": ["vitest.config.*", "vitest.setup.*", "dist", "example.js"]
 }
