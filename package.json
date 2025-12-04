@@ -2,7 +2,7 @@
   "type": "module",
   "license": "MIT",
   "name": "sessionize_api",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "TypeScript package for fetching and validating data from the Sessionize API with full type safety and Zod schema validation",
   "keywords": [
     "sessionize",

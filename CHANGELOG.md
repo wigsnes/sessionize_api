@@ -1,5 +1,11 @@
 # sessionize_api
 
+## 0.4.2
+
+### Patch Changes
+
+- 2d8e0c3: Add comprehensive JSDoc documentation and improve README for better AI/Cursor discoverability. Update all dependencies to latest versions.
+
 ## 0.4.0
 
 ### Minor Changes
