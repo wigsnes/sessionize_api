@@ -163,16 +163,12 @@ import {
 import fs from 'fs';
 
 // Strict validation (throws on error)
-const sessionsData = JSON.parse(
-  fs.readFileSync('sessions.json', 'utf-8'),
-);
+const sessionsData = JSON.parse(fs.readFileSync('sessions.json', 'utf-8'));
 const sessions = parseJsonFile(sessionsData, SessionsSchema);
 // sessions is now typed as SessionGroups
 
 // Safe validation (logs warnings, returns data even if invalid)
-const speakersData = JSON.parse(
-  fs.readFileSync('speakers.json', 'utf-8'),
-);
+const speakersData = JSON.parse(fs.readFileSync('speakers.json', 'utf-8'));
 const speakers = safeParseJsonFile(speakersData, SpeakersSchema);
 // speakers is typed as Speakers
 ```
