@@ -26,6 +26,55 @@ const SafeParse = <T>(data: unknown, schema: ZodType): T => {
 };
 
 /**
+ * Parses a JSON file and validates it against a Zod schema.
+ * Useful when you have Sessionize data stored as JSON files and want to maintain type safety.
+ *
+ * @param jsonData - The JSON data (from reading a file or JSON.parse)
+ * @param schema - The Zod schema to validate against
+ * @returns The validated and typed data
+ * @throws Error if validation fails (unlike SafeParse which logs warnings)
+ *
+ * @example
+ * ```typescript
+ * import { parseJsonFile, SessionsSchema } from 'sessionize_api';
+ * import fs from 'fs';
+ *
+ * const jsonData = JSON.parse(fs.readFileSync('sessions.json', 'utf-8'));
+ * const sessions = parseJsonFile(jsonData, SessionsSchema);
+ * // sessions is now typed as SessionGroups
+ * ```
+ */
+export const parseJsonFile = <T>(jsonData: unknown, schema: ZodType<T>): T => {
+  const parsed = schema.parse(jsonData);
+  return parsed;
+};
+
+/**
+ * Safely parses a JSON file and validates it against a Zod schema.
+ * Returns the data even if validation fails (logs warnings instead of throwing).
+ *
+ * @param jsonData - The JSON data (from reading a file or JSON.parse)
+ * @param schema - The Zod schema to validate against
+ * @returns The validated and typed data (or unvalidated data if validation fails)
+ *
+ * @example
+ * ```typescript
+ * import { safeParseJsonFile, SessionsSchema } from 'sessionize_api';
+ * import fs from 'fs';
+ *
+ * const jsonData = JSON.parse(fs.readFileSync('sessions.json', 'utf-8'));
+ * const sessions = safeParseJsonFile(jsonData, SessionsSchema);
+ * // sessions is typed as SessionGroups, even if validation fails
+ * ```
+ */
+export const safeParseJsonFile = <T>(
+  jsonData: unknown,
+  schema: ZodType<T>,
+): T => {
+  return SafeParse<T>(jsonData, schema);
+};
+
+/**
  * Fetches all Sessionize data including sessions, speakers, and schedule information.
  * This is a comprehensive endpoint that returns all available data in a single request.
  *

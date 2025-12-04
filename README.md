@@ -148,6 +148,55 @@ const sessions: SessionGroup[] = await getSessions(key);
 const speakers: Speakers = await getSpeakers(key);
 ```
 
+## Using Zod Schemas with JSON Files
+
+If you have Sessionize data stored as JSON files, you can use the exported Zod schemas to validate and type your data:
+
+```typescript
+import {
+  parseJsonFile,
+  safeParseJsonFile,
+  SessionsSchema,
+  SpeakersSchema,
+  SessionizeAllSchema,
+} from 'sessionize_api';
+import fs from 'fs';
+
+// Strict validation (throws on error)
+const sessionsData = JSON.parse(
+  fs.readFileSync('sessions.json', 'utf-8'),
+);
+const sessions = parseJsonFile(sessionsData, SessionsSchema);
+// sessions is now typed as SessionGroups
+
+// Safe validation (logs warnings, returns data even if invalid)
+const speakersData = JSON.parse(
+  fs.readFileSync('speakers.json', 'utf-8'),
+);
+const speakers = safeParseJsonFile(speakersData, SpeakersSchema);
+// speakers is typed as Speakers
+```
+
+### Available Zod Schemas
+
+All Zod schemas are exported and can be used for validation:
+
+- `SessionizeAllSchema` - Validates complete Sessionize data
+- `SessionsSchema` - Validates session groups
+- `SpeakersSchema` - Validates speakers array
+- `ScheduleSchema` - Validates schedule grid data
+- `SpeakersWallSchema` - Validates speaker wall data
+
+### Helper Functions
+
+#### `parseJsonFile<T>(jsonData: unknown, schema: ZodType<T>): T`
+
+Strictly validates JSON data against a schema. Throws an error if validation fails.
+
+#### `safeParseJsonFile<T>(jsonData: unknown, schema: ZodType<T>): T`
+
+Safely validates JSON data. Logs warnings but returns data even if validation fails (same behavior as the API functions).
+
 ## Schema Validation
 
 This package uses Zod for runtime validation. If the API returns data that doesn't match the expected schema:
