@@ -6,6 +6,10 @@
 
 - 094f3e2: Update zod and speaker types
 
+### Patch Changes
+
+- 227b61c: Add comprehensive JSDoc documentation and improve README for better AI/Cursor discoverability. Update all dependencies to latest versions.
+
 ## 0.3.7
 
 ### Patch Changes
