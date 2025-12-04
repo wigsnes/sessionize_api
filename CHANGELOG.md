@@ -1,5 +1,11 @@
 # sessionize_api
 
+## 0.5.0
+
+### Minor Changes
+
+- 8916019: Export Zod schemas and add helper functions for parsing JSON files. Add `parseJsonFile` and `safeParseJsonFile` functions to validate and type JSON data from files.
+
 ## 0.4.2
 
 ### Patch Changes
